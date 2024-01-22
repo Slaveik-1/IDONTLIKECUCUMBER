@@ -1,0 +1,1 @@
+{"uuid":"4cdf173b-8cea-4167-97f5-f54e557b5198","name":"Структура сценария: Добавление товара","children":["fd09cbe6-fe8c-418f-bc21-4bee0b4882da"],"befores":[{"name":"framework.steps.Hooks.before()","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1705963321599,"stop":1705963321652}],"afters":[],"start":1705963321598,"stop":1705963321824}

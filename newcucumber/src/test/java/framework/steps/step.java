@@ -8,9 +8,8 @@ public class step {
     Page p = new Page();
 
     @Given("open page \"Главная\"")
-    public void open() throws InterruptedException {
+    public void open() {
         p.initPage();
-        Thread.sleep(1000);
 
     }
 

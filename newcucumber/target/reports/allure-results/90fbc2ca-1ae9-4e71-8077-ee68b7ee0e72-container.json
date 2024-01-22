@@ -1,0 +1,1 @@
+{"uuid":"90fbc2ca-1ae9-4e71-8077-ee68b7ee0e72","name":"Scenario: yspeshnoe dobavlenie tovara","children":["90fb1318-5377-4bba-b052-0a133c9f7b34"],"befores":[{"name":"framework.steps.Hooks.before()","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1705963312566,"stop":1705963313224}],"afters":[],"start":1705963312565,"stop":1705963316924}

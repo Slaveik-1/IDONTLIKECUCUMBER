@@ -1,4 +1,5 @@
-@all
+@UI
+
   Feature: dobavlenie tovara
 
     Scenario:yspeshnoe dobavlenie tovara
