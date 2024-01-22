@@ -15,7 +15,7 @@ public class Hooks {
 
     @Before
     public static void before(){
-        WebDriverManager.getWebDriver().get("http://localhost:8080");
+        WebDriverManager.getWebDriver().get("http://localhost:8080/");
     }
 
 
