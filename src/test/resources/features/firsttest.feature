@@ -1,4 +1,5 @@
 @UI
+@all
 
   Feature: dobavlenie tovara
 

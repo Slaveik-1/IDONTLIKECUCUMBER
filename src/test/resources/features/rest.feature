@@ -1,7 +1,8 @@
 # language: ru
 
 @API
-
+@all
+  
 Функция: Rest api тест
 
 
