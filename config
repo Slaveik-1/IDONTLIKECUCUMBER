@@ -1,10 +1,10 @@
 node('unix') {
     stage('Git checkout') {
-    checkout scm
+        checkout scm
     }
     stage('Run tests for Maven') {
-    withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'Default', mavenSettingsConfig: '', traceability: true) {
-    sh 'mvn clean test -Dtype.browser=${browser} -Dgroups=${tegs}''
+        withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'Default', mavenSettingsConfig: '', traceability: true) {
+            sh 'mvn clean test -Dtype.browser=${browser} -Dgroups=${tegs}''
             }
         }
     stage('allure rep') {
