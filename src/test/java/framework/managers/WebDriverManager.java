@@ -28,10 +28,8 @@ public class WebDriverManager {
             DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
             desiredCapabilities.setBrowserName(Btype);
             desiredCapabilities.setVersion("109.0");
-            desiredCapabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                    "enableVNC", true,
-                    "enableVideo", false
-            ));
+            desiredCapabilities.setCapability("enableVNC", true);
+            desiredCapabilities.setCapability("enableVideo", false);
             try {
                 rDriver = new RemoteWebDriver(URI.create(selen).toURL(), desiredCapabilities);
             } catch (MalformedURLException exception) {
