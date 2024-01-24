@@ -6,6 +6,8 @@ import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 
 public class Hooks {
+    public static final String base = "http://localhost:8080/";
+    public static final String rem = "http://149.154.71.152:8080/";
 
     @BeforeAll
     public static void before_all(){
@@ -14,7 +16,7 @@ public class Hooks {
 
     @Before
     public static void before(){
-        WebDriverManager.getWebDriver().get("http://localhost:8080/");
+        WebDriverManager.getWebDriver().get(rem);
     }
 
 

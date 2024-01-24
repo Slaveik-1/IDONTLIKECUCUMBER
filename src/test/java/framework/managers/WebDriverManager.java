@@ -31,7 +31,8 @@ public class WebDriverManager {
             desiredCapabilities.setCapability("enableVNC", true);
             desiredCapabilities.setCapability("enableVideo", false);
             try {
-                rDriver = new RemoteWebDriver(URI.create(selen).toURL(), desiredCapabilities);
+                rDriver = new RemoteWebDriver(
+                        URI.create(selen).toURL(),desiredCapabilities);
             } catch (MalformedURLException exception) {
                 exception.printStackTrace();
             }
