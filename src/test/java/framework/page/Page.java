@@ -17,7 +17,7 @@ import java.util.function.Function;
 
 public class Page {
 
-    protected WebDriverWait wait = new WebDriverWait(WebDriverManager.getWebDriver(), 5L);
+    protected WebDriverWait wait = new WebDriverWait(WebDriverManager.getWebDriver(), 10L);
 
     protected Map<String, String> myloveMap = new HashMap<String, String>();
 
@@ -41,8 +41,13 @@ public class Page {
 
     }
     public WebElement getElement(String a){
-        WebElement e = WebDriverManager.getWebDriver().findElement(By.xpath(myloveMap.get(a)));
-        return e;
+        try {
+            WebElement e = WebDriverManager.getWebDriver().findElement(By.xpath(myloveMap.get(a)));
+            return e;
+        }
+        catch (TimeoutException e){
+            return stubbornWait(a);
+        }
     }
     public void elementVisible(String a){
 
@@ -52,10 +57,19 @@ public class Page {
         catch (StaleElementReferenceException e){
             stubbornWait(a);
         }
+        catch (TimeoutException e){
+            stubbornWait(a);
+        }
     }
 
     public void click(String a){
-        wait.until(ExpectedConditions.elementToBeClickable(getElement(a))).click();
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(getElement(a))).click();
+        }
+        catch (TimeoutException e) {
+            stubbornWait(a).click();
+        }
+
     }
 
     public void sendkey(String string){
@@ -64,14 +78,14 @@ public class Page {
 
     public WebElement stubbornWait(String name) {
         Wait<WebDriver> stubbornWait = new FluentWait<WebDriver>(WebDriverManager.getWebDriver())
-                .withTimeout(Duration.ofSeconds(90))
-                .pollingEvery(Duration.ofSeconds(15))
+                .withTimeout(Duration.ofSeconds(360))
+                .pollingEvery(Duration.ofSeconds(5))
                 .ignoring(NoSuchElementException.class)
                 .ignoring(StaleElementReferenceException.class);
 
-        WebElement element = stubbornWait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver element) {
-                return WebDriverManager.getWebDriver().findElement(By.xpath(
+        WebElement e = stubbornWait.until(new Function<WebDriver, WebElement>() {
+            public WebElement apply(WebDriver driver) {
+                return driver.findElement(By.xpath(
                         myloveMap.get(name)));
             }
         });

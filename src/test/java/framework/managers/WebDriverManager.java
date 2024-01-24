@@ -29,7 +29,7 @@ public class WebDriverManager {
             desiredCapabilities.setBrowserName(Btype);
             desiredCapabilities.setVersion("109.0");
             desiredCapabilities.setCapability("enableVNC", true);
-            desiredCapabilities.setCapability("enableVideo", false);
+            desiredCapabilities.setCapability("enableVideo", true);
             try {
                 rDriver = new RemoteWebDriver(
                         URI.create(selen).toURL(),desiredCapabilities);
@@ -43,12 +43,17 @@ public class WebDriverManager {
             if (webDriver == null && rDriver == null) {
                 initDriver();
             }
-            if (dType.equals("local"))
+            if (dType.equals("local")) {
+                webDriver.manage().window().maximize();
                 return webDriver;
-            if (dType.equals("remote"))
+            }
+            if (dType.equals("remote")){
+                rDriver.manage().window().maximize();
                 return rDriver;
+            }
             return null;
         }
+
 
         public static void quit () {
             if (webDriver != null) {
