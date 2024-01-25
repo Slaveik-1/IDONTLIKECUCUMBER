@@ -2,7 +2,7 @@
 
 @API
 @all
-  
+
 Функция: Rest api тест
 
 

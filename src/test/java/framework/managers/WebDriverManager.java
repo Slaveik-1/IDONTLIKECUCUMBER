@@ -11,7 +11,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverManager {
-    public static final String dType = "remote";
+ /*   public static final String dType = "remote";*/
+ public static final String dType = "local";
     public static final String selen = "http://149.154.71.152:4444/wd/hub";
     public static final String Btype = "chrome";
 

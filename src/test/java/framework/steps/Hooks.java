@@ -16,7 +16,7 @@ public class Hooks {
 
     @Before
     public static void before(){
-        WebDriverManager.getWebDriver().get(rem);
+        WebDriverManager.getWebDriver().get(base);
     }
 
 
